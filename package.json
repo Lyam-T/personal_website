@@ -8,8 +8,6 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -29,5 +27,4 @@
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1"
   },
-  "homepage": "https://Lyam-T.github.io/personal_website/"
 }
