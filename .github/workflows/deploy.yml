@@ -29,4 +29,5 @@ jobs:
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: ./dist
+          commit_message: "Deploy: Update site content 🚀"  # Simple custom message
           keep_files: false  # Clears old files before deploying
