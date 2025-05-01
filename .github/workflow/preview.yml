@@ -1,0 +1,28 @@
+name: PR Preview
+on: [pull request]
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+            node-version: 20
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Deploy Preview
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          publish_repo: ${{ github.repository }}
+          destination_dir: preview/${{ github.event.pull_request.number }}
+          force_orphan: true
+          keep_files: false
+          commit_message: "Deploy preview for PR #${{ github.event.pull_request.number }}"
