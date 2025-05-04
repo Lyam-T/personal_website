@@ -18,10 +18,8 @@ jobs:
       - name: Deploy Preview
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: ./dist
-          publish_branch: gh-pages
           destination_dir: preview/${{ github.event.pull_request.number }}
-          force_orphan: true
+          commit_message: "Deploy: Preview for PR #${{ github.event.pull_request.number }} 🔍"
           keep_files: false
-          commit_message: "Deploy preview for PR #${{ github.event.pull_request.number }}"
